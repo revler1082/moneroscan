@@ -1,0 +1,46 @@
+{
+  "name": "moneroscan",
+  "version": "0.16.0",
+  "description": "more nonsense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revler1082/moneroscan.git"
+  },
+  "scripts": {
+    "start": "SET \"NODE_ENV=development\" && node build/server",
+    "start-production": "SET \"NODE_ENV=production\" && node build/server",    
+    "start-webpack": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+    "build": "webpack --config webpack-development.config.js --progress --colors && xcopy .\\src\\server\\* .\\build\\ /s /i /D /Y",
+    "build-server": "xcopy .\\src\\server\\* .\\build\\ /s /i /D /Y",
+    "build-production": "webpack --config webpack-production.config.js --progress --colors && xcopy .\\src\\server\\* .\\build\\ /s /i /D /Y",
+    "clean": "rmdir /S /Q build",
+    "deploy": "xcopy .\\build\\* [SOME PLACE] /s /i /D /Y && xcopy .\\node_modules\\* [SOME_PLACE]\\node_modules /s /i /D /Y",
+    "deploy-production": "xcopy .\\build\\* [SOME PLACE] /s /i /D /Y && xcopy .\\node_modules\\* [SOME_PLACE]\\node_modules /s /i /D /Y"
+  },
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "html-webpack-plugin": "^2.7.2",
+    "react-hot-loader": "^1.3.0",
+    "transfer-webpack-plugin": "^0.1.4",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "jquery": "^3.1.0",
+    "material-ui": "^0.15.0",
+    "morgan": "^1.7.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-router": "^2.8.1",
+    "react-tap-event-plugin": "^1.0.0",
+    "sequelize": "^3.24.2",
+    "tedious": "^1.14.0"
+  }
+}
